@@ -93,6 +93,10 @@ div.header:first-child {
 	flex: 0 0 30px;
 }
 
+div.header > div.title {
+	color: red;
+}
+
 div.header > div.user {
 	flex: 0 0 50px;
 	font-size: 14px;

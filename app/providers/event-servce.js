@@ -60,11 +60,13 @@ angular.module('beThere')
 								(res) => {
 									if (res.status === 401) {
 										displayMessage('Event Saved', 3000);
+										return {status: 200};
 									}
 									else {
 										displayMessage('Service Error', 3000);
+										return res;
 									}
-									return res;
+
 								})
 						.catch(function (res) {
 							displayMessage('Service Error', 3000);

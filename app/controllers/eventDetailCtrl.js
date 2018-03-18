@@ -8,7 +8,7 @@ angular.module('beThere')
 					EventService.saveEvent(event.eventId, $rootScope.userName, coming)
 							.then ((res) => {
 								if (res.status === 200) {
-									//do anything?
+									$scope.event.status = coming;
 								}
 							});
 				};
