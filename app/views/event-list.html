@@ -1,13 +1,18 @@
 <div class="header">
+	<div>&nbsp;</div>
 	Events
+	<div class="user">
+		<div>{{userName}}</div>
+		<div><a href="#" ng-click="logOut()">Log Out</a></div>
+	</div>
 </div>
 
 <div class="event-list" >
-	<div class="event-item borders" ng-repeat="event in events">
-		<div class="thumb"><img src="/images/glyphicons-3-dog.png"></div>
+	<div class="event-item borders" ng-repeat="event in events" ng-click="showDetail(event)">
+		<div class="thumb"><img ng-src="{{event.thumbUrl}}"></div>
 		<div class="description">
 			{{event.description}}
 		</div>
-		<div class="go-detail" ng-click="showDetail(event)"><img src="/images/arrow-right.png"></div>
+		<div class="go-detail"><img src="/images/arrow-right.png"></div>
 	</div>
 </div>

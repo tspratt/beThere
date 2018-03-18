@@ -1,8 +1,21 @@
-<div class="header">
-	<img src="/images/arrow-left.png">
+<div class="header ">
+	<img class="go-back" src="/images/arrow-left.png" ng-click="goEvents()">
 	Event Detail
+	<div class="user">
+		<div>{{userName}}</div>
+		<div><a href="#" ng-click="logOut()">Log Out</a></div>
+	</div>
 </div>
 
-<div class="event-detail borders" >
+<div class="event-detail borders" ng-class="{'i-am-there':event.status}">
+	<div >
+		<div ng-if="event.status">
+			<span class="be-there">I Am There!</span> <button ng-click="setStatus(false)">Changed my mind, I can't come</button>
+		</div>
+		<div ng-if="!event.status">
+			<span class="be-there">I Am Coming!</span> <button ng-click="setStatus(true)">I'll Be There!</button>
+		</div>
+	</div>
+	{{event.description}}
 
 </div>

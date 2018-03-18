@@ -2,7 +2,6 @@ angular.module('beThere')
 		.controller('EventCtrl', ['$rootScope', '$scope', '$state', 'EventService',
 			function ($rootScope, $scope, $state, EventService) {
 				$scope.vm = {};
-				$scope.selectedEvent = null;
 
 				function init() {
 					getEvents();
@@ -11,7 +10,7 @@ angular.module('beThere')
 				function getEvents() {
 					$scope.event = null;
 					$scope.selectedId = '';
-					EventService.listEvents()
+					EventService.listEvents($rootScope.userName)
 							.then((res) => {
 								if (res.status === 200) {
 									$scope.events = res.data;
@@ -21,21 +20,10 @@ angular.module('beThere')
 				}
 
 				$scope.showDetail = function (event) {
-					$scope.selectedEvent = event;
-					EventService.getMedia(event.eventId, event.mediaId)
-							.then ((res) => {
-								if (res.status === 200) {
-									$scope.selectedEvent.imgUrl = res.data.imgUrl;
-								}
-							});
-					EventService.getEventStatus(event.eventId, $rootScope)
-							.then ((res) => {
-								if (res.status === 200) {
-									$scope.selectedEvent.status = res.data.status;
-								}
-							})
-					$state.go('event-detail');
+					$state.go('event-detail', {event:event});
 				};
+
+				$scope.goEvents = () => {$state.go('event-list')};
 
 				init();
 			}]);

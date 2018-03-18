@@ -41,7 +41,7 @@ div.container > div.footer {
 	justify-content: space-between;
 	background-color: red;
 }
-div.footer .be-there {
+.be-there {
 	font-size: large;
 	font-weight:bold;
 }
@@ -84,11 +84,30 @@ div.content > div.header {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 	font-size: x-large;
 }
 
+div.header:first-child {
+	flex: 0 0 30px;
+}
+
+div.header > div.user {
+	flex: 0 0 50px;
+	font-size: 14px;
+	font-style: italic;
+	color: white;
+	text-align: right;
+}
+
+div.header > div.user > div > a {
+	color: white;
+}
+
+div.header .go-back {
+	cursor:pointer;
+}
 
 div.login-input {
 	margin:10px;
@@ -101,6 +120,16 @@ div.login-input > input {
 	width: 95%;
   font-size: 20px;
   margin: 5px;
+}
+
+div.login-input input[type='checkbox'] {
+	width:30px;
+	height:30px;
+}
+
+div.login-input .remember-me {
+	font-size: 20px;
+	color: black;
 }
 
 button.login {
@@ -117,10 +146,15 @@ div.borders {
   background-color: ghostwhite;
 }
 
-div.event-list {
+div.borders.i-am-there {
+	border: 4px outset red;
+}
 
+div.event-list {
+	flex: 0 1 auto;
 	color: black;
-	flex: 1 0 auto;
+	overflow-y: auto;
+	height: 100%;
 }
 div.event-list > div.event-item {
 	display: flex;
@@ -142,7 +176,9 @@ div.event-item > .description {
 div.event-item > .go-detail {
 	flex: 0 0 40px;
 	cursor: pointer;
+	text-align: right;
 }
 div.event-detail {
 	height: 100%;
+	color: black;
 }

@@ -1,12 +1,17 @@
 <div class="header">
-	<span class="small-label">Log In to</span> Be There!
+	<div></div>
+	Be There!
+	<div class="user">Log In</div>
 </div>
 <div class="login-input borders">
-	<input type="text" placeholder="user name" ng-model="vm.username">
+	<input type="text" placeholder="user name" ng-model="vm.userName">
 	<input type="password" placeholder="password"
 				 ng-model="vm.password"
 				 ng-change="validateForm()">
-	<button class="login"	ng-click="logIn()" ng-disabled="!isFormValid">
+	<div class="remember-me">
+		<input type="checkbox" ng-model="vm.rememberMe"> Remember me on this device
+	</div>
+	<button class="login"	ng-click="logIn()" ng-disabled="!vm.isFormValid">
 		Log In
 	</button>
 </div>

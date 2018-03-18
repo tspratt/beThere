@@ -6,7 +6,7 @@ angular.module('beThere', [
 	'ui.router',
 	'ngStorage'
 ])
-.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDelegateProvider) {
+.config(function ($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise('/log-in');
 	$stateProvider
 			.state('log-in', {
@@ -21,9 +21,14 @@ angular.module('beThere', [
 			.state('event-detail', {
 				url: '/event-detail',
 				templateUrl: '/views/event-detail.html',
-				controller: 'EventCtrl'
+				controller: 'EventDetailCtrl',
+				params: {event: null}
 			})
 })
-		.run(['$rootScope', function ($rootScope){
-			$rootScope.errorStatus = '';
+		.run(['$rootScope', '$state', function ($rootScope, $state){
+			$rootScope.userMessage = '';
+			$rootScope.logOut = function () {
+				$rootScope.userName = '';
+				$state.go('log-in');
+			}
 		}]);
