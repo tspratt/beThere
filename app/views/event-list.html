@@ -1,0 +1,13 @@
+<div class="header">
+	Events
+</div>
+
+<div class="event-list" >
+	<div class="event-item borders" ng-repeat="event in events">
+		<div class="thumb"><img src="/images/glyphicons-3-dog.png"></div>
+		<div class="description">
+			{{event.description}}
+		</div>
+		<div class="go-detail" ng-click="showDetail(event)"><img src="/images/arrow-right.png"></div>
+	</div>
+</div>

@@ -1,0 +1,15 @@
+<div class="header">
+	<span class="small-label">Log In to</span> Be There!
+</div>
+<div class="login-input borders">
+	<input type="text" placeholder="user name" ng-model="vm.username">
+	<input type="password" placeholder="password"
+				 ng-model="vm.password"
+				 ng-change="validateForm()">
+	<button class="login"	ng-click="logIn()" ng-disabled="!isFormValid">
+		Log In
+	</button>
+</div>
+
+
+
